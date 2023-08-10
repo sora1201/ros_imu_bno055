@@ -282,10 +282,14 @@ class SensorIMU:
         imu_data.header.frame_id = self.frame_id
         imu_data.header.seq = self.imu_data_seq_counter
 
-        imu_data.orientation.w = quaternion[0] / 16384 #正規化
-        imu_data.orientation.x = quaternion[1] / 16384 #正規化
-        imu_data.orientation.y = quaternion[2] / 16384 #正規化
-        imu_data.orientation.z = quaternion[3] / 16384 #正規化
+        # imu_data.orientation.w = quaternion[0] / 16384 #正規化
+        # imu_data.orientation.x = quaternion[1] / 16384 #正規化
+        # imu_data.orientation.y = quaternion[2] / 16384 #正規化
+        # imu_data.orientation.z = quaternion[3] / 16384 #正規化
+        imu_data.orientation.w = quaternion[0]
+        imu_data.orientation.x = quaternion[1]
+        imu_data.orientation.y = quaternion[2]
+        imu_data.orientation.z = quaternion[3]
 
         imu_data.linear_acceleration.x = linear_acceleration[0]
         imu_data.linear_acceleration.y = linear_acceleration[1]
